@@ -11,11 +11,7 @@ const getters = {
   getPosts: (state) => state.all,
   getIsFetching: (state) => state.isFetching,
   getPost: (state) => (postId) => {
-    console.log('postId', postId);
     const itemIndex = state.all.findIndex((item) => item.id === postId);
-
-    console.log('Found itemIndex', itemIndex);
-    console.log('Found item', state.all[itemIndex]);
 
     return state.all[itemIndex];
   },

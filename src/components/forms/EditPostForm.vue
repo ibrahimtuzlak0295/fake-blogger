@@ -52,7 +52,6 @@ const editPostForm = reactive({
 });
 
 const onSubmit = () => {
-  console.log('updating post ', editPostForm);
   store
     .dispatch('posts/updatePost', { post: editPostForm })
     .then(() => router.push({ name: 'posts.list' }))

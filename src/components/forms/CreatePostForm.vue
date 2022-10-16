@@ -41,7 +41,6 @@ const createPostForm = reactive({
 });
 
 const onSubmit = () => {
-  console.log('creating post ', createPostForm);
   store
     .dispatch('posts/createPost', { postData: createPostForm })
     .then(() => router.push({ name: 'posts.list' }))
