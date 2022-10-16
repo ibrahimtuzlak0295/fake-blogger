@@ -130,25 +130,23 @@ const confirmDelete = (item: Post) => {
 };
 const columns = [
   {
-    name: 'ID',
-    required: true,
+    name: 'id',
     label: 'ID',
-    align: 'left',
-    field: (row: any) => row.id,
-    format: (val: any) => `${val}`,
+    field: 'id',
+    align: 'left' as const,
   },
-  { name: 'userId', label: 'User ID', field: 'userId', align: 'left' },
-  { name: 'title', label: 'Title', field: 'title', align: 'left' },
-  { name: 'body', label: 'Body', field: 'body', align: 'left' },
+  { name: 'userId', label: 'User ID', field: 'userId', align: 'left' as const },
+  { name: 'title', label: 'Title', field: 'title', align: 'left' as const },
+  { name: 'body', label: 'Body', field: 'body', align: 'left' as const },
   {
     name: 'actions',
     label: 'Actions',
     field: 'actions',
-    align: 'center',
+    align: 'center' as const,
   },
 ];
 
-const isFetchingPosts = computed<Boolean>(
+const isFetchingPosts = computed<boolean>(
   () => store.getters['posts/getIsFetching']
 );
 const rows = computed<Post[]>(() => store.getters['posts/getPosts']);
