@@ -21,6 +21,7 @@ const getters = {
 const actions = {
   async fetchPosts({ commit }) {
     commit('SET_IS_FETCHING', true);
+
     PostsService.getPosts()
       .then((posts) => {
         commit('SET_POSTS', posts);
@@ -34,19 +35,33 @@ const actions = {
   },
 
   async deletePost({ commit }, { post }) {
-    // PostsService.deletePost(post.id).then(() => ... commit())
-    commit('DELETE_POST', { post });
+    commit('SET_IS_FETCHING', true);
+
+    PostsService.deletePost(post.id)
+      .then((response) => {
+        commit('DELETE_POST', { post });
+      })
+      .finally(() => commit('SET_IS_FETCHING', false));
   },
 
   async updatePost({ commit }, { post }) {
-    // PostsService.updatePost(post.id).then(() => ... commit() )
-    commit('UPDATE_POST', { post });
+    commit('SET_IS_FETCHING', true);
+
+    PostsService.updatePost(post)
+      .then(() => commit('UPDATE_POST', { post }))
+      .finally(() => commit('SET_IS_FETCHING', false));
   },
 
-  async createPost({ commit }, { postData }) {
-    // PostsService.createPost(post).then(() => ... commit() )
+  async createPost({ commit }, { post }) {
+    commit('SET_IS_FETCHING', true);
 
-    commit('ADD_POST', { postData });
+    console.log('createPost', post);
+
+    PostsService.createPost(post)
+      .then((response) => {
+        commit('ADD_POST', { post: response.data });
+      })
+      .finally(() => commit('SET_IS_FETCHING', false));
   },
 };
 
@@ -70,15 +85,8 @@ const mutations = {
     state.all.splice(itemIndex, 1);
   },
 
-  ADD_POST(state, { postData }) {
-    const lastPostId = state.all.slice(-1)[0].id;
-
-    state.all.push({
-      id: lastPostId + 1,
-      userId: 1,
-      title: postData.title,
-      body: postData.body,
-    });
+  ADD_POST(state, { post }) {
+    state.all.push(post);
   },
 };
 

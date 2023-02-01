@@ -61,7 +61,7 @@ const onSubmit = () => {
     .catch((e) =>
       $q.notify({
         type: 'negative',
-        message: `Failure updating post:  ${e.message}`,
+        message: `Failure updating post: ${e.message}`,
       })
     );
 };

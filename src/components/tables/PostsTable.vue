@@ -161,7 +161,7 @@ const deleteRow = (item: Post) => {
   store
     .dispatch('posts/deletePost', { post: item })
     .then(() =>
-      $q.notify({ type: 'positive', message: 'Post deleted succesfully.' })
+      $q.notify({ type: 'positive', message: 'Post deleted successfully.' })
     )
     .catch((e) =>
       $q.notify({ type: 'negative', message: `Failure deleting post: ${e}` })

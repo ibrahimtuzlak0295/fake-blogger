@@ -30,6 +30,8 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-const isLoggedIn = computed(() => store.getters['users/getIsLoggedIn']);
-const isAdmin = computed(() => store.getters['users/getIsAdmin']);
+const isLoggedIn = computed<boolean>(
+  () => store.getters['users/getIsLoggedIn']
+);
+const isAdmin = computed<boolean>(() => store.getters['users/getIsAdmin']);
 </script>

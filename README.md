@@ -9,7 +9,7 @@ Libraries and technologies used on top of Vue:
 - Vuex
 - Typescript (except for Vuex/store)
 
-Persistent state is NOT present. Re-logging in requred on page refresh.
+Persistent state is NOT present. Re-logging in required on page refresh.
 
 The App contains less-than-ideal fake login (hard-coded username/password checks).
 

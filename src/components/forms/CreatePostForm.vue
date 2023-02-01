@@ -38,19 +38,20 @@ const router = useRouter();
 const createPostForm = reactive({
   title: '',
   body: '',
+  userId: 1,
 });
 
 const onSubmit = () => {
   store
-    .dispatch('posts/createPost', { postData: createPostForm })
+    .dispatch('posts/createPost', { post: createPostForm })
     .then(() => router.push({ name: 'posts.list' }))
     .then(() =>
-      $q.notify({ type: 'positive', message: 'Post successfully create.' })
+      $q.notify({ type: 'positive', message: 'Post successfully created.' })
     )
     .catch((e) =>
       $q.notify({
         type: 'negative',
-        message: `Failure creating post:  ${e.message}`,
+        message: `Failure creating post: ${e.message}`,
       })
     );
 };
