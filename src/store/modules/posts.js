@@ -55,8 +55,6 @@ const actions = {
   async createPost({ commit }, { post }) {
     commit('SET_IS_FETCHING', true);
 
-    console.log('createPost', post);
-
     PostsService.createPost(post)
       .then((response) => {
         commit('ADD_POST', { post: response.data });
