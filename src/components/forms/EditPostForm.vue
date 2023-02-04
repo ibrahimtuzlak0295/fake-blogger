@@ -37,12 +37,9 @@ const store = useStore();
 const $q = useQuasar();
 const router = useRouter();
 
-const props = defineProps({
-  post: {
-    type: Object as PropType<Post>,
-    required: true,
-  },
-});
+const props = defineProps<{
+  post: Post;
+}>();
 
 const editPostForm = reactive({
   id: props.post.id,
