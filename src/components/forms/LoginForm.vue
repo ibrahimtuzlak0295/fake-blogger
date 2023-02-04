@@ -48,7 +48,7 @@ const onSubmit = () => {
     .then(() => {
       if (store.getters['users/getIsLoggedIn']) router.push({ name: 'home' });
     })
-    .then(() => $q.notify({ type: 'positive', message: 'Login succesful.' }))
+    .then(() => $q.notify({ type: 'positive', message: 'Login successful.' }))
     .catch((e) =>
       $q.notify({ type: 'negative', message: `Login failed: ${e.message}` })
     );
