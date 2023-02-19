@@ -108,9 +108,7 @@ import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 
 const store = useStore();
-
 const $q = useQuasar();
-
 const router = useRouter();
 
 const isAdmin = computed(() => store.getters['users/getIsAdmin']);
@@ -129,12 +127,7 @@ const confirmDelete = (item: Post) => {
     .onCancel(() => $q.notify({ type: 'info', message: 'No action taken.' }));
 };
 const columns = [
-  {
-    name: 'id',
-    label: 'ID',
-    field: 'id',
-    align: 'left' as const,
-  },
+  { name: 'id', label: 'ID', field: 'id', align: 'left' as const },
   { name: 'userId', label: 'User ID', field: 'userId', align: 'left' as const },
   { name: 'title', label: 'Title', field: 'title', align: 'left' as const },
   { name: 'body', label: 'Body', field: 'body', align: 'left' as const },

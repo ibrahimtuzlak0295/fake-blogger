@@ -32,8 +32,8 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
 const store = useStore();
-
 const router = useRouter();
+
 const currentUser = computed<User>(() => store.getters['users/getCurrentUser']);
 
 const logout = () => {

@@ -15,7 +15,6 @@ import { useStore } from 'vuex';
 import EditPostForm from '../components/forms/EditPostForm.vue';
 
 const store = useStore();
-
 const route = useRoute();
 
 const postId = computed(() => route.params.post_id);
