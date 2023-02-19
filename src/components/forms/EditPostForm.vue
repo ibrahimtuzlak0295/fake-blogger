@@ -26,7 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue';
 import { reactive } from 'vue';
 import { useStore } from 'vuex';
 import { useQuasar } from 'quasar';

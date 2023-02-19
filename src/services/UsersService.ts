@@ -1,4 +1,3 @@
-// import type { Post } from '@/types/Post';
 // import type { User } from '@/types/User';
 import type { UserLoginRequest } from '@/types/UserLoginRequest';
 // import axios from 'axios';

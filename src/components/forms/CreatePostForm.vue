@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from 'vue';
+import { reactive } from 'vue';
 import { useStore } from 'vuex';
 import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
